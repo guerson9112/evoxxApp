@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  useNavigate
+  Link
 } from "react-router-dom";
 import { Container, makeStyles, Typography } from '@material-ui/core';
 import { Home, ChangeHistory, Category, Assignment } from '@material-ui/icons';
-import { Area } from '../administration/area/Area';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -44,13 +43,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const LeftBar = () => {
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const classes = useStyles();
 
   const onHandleClick = (e) => {
     console.log('lcick');
-    navigate('/area');
+    /* navigate('/area'); */
   }
 
   return (
@@ -61,15 +60,27 @@ export const LeftBar = () => {
 
         <div className={classes.item} >
           <Home className={classes.icon} />
-          <Typography className={classes.text}>Inicio</Typography>
+          <Typography className={classes.text}>
+            <Link to={'/'}>
+              Inicio
+            </Link>
+          </Typography>
         </div>
         <div className={classes.item} onClick={onHandleClick}>
           <ChangeHistory className={classes.icon} />
-          <Typography className={classes.text}>Area</Typography>
+          <Typography className={classes.text}>
+            <Link to={'/area'}>
+              Area
+            </Link>
+          </Typography>
         </div>
         <div className={classes.item}>
           <Category className={classes.icon} />
-          <Typography className={classes.text}>Inicio</Typography>
+          <Typography className={classes.text}>
+            <Link to={'/area'}>
+              Area
+            </Link>
+          </Typography>
         </div>
         <div className={classes.item}>
           <Assignment className={classes.icon} />
@@ -77,7 +88,8 @@ export const LeftBar = () => {
         </div>
       </Container>
 
-      
+
+
     </>
 
   )

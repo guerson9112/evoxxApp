@@ -3,10 +3,10 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    Switch,
   } from "react-router-dom";
 import { AdminScreen } from '../components/administration/AdminScreen';
-import { Area } from '../components/administration/area/Area';
+import { Area } from '../components/administration/pages/Area';
+import { Home } from '../components/administration/pages/Home';
 import { LoginScreen } from '../components/auth/LoginScreen';
 
 export const AppRouter = () => {
@@ -14,11 +14,16 @@ export const AppRouter = () => {
         <BrowserRouter>
             <Routes>
                     {/* <Route  path="/" element={<LoginScreen/>} /> */}
-                   {<Route  path="/" element={<AdminScreen/>} />}
+                   <Route  path="/" element={<AdminScreen/>} >
+                        <Route index element={<Home />} />
+                        <Route path="area" element={<Area />} />
+                   </Route>
     
             </Routes>
         
         </BrowserRouter>
     )
 }
+
+
        

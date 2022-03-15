@@ -1,23 +1,43 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core';
+import {
+    Routes,
+    Route,
+    Outlet,
+} from "react-router";
 import { LeftBar } from '../ui/LeftBar'
 import { NavBar } from '../ui/NavBar'
-import { Area } from './area/Area'
+import { Container, makeStyles } from "@material-ui/core";
+import { Area } from './pages/Area';
+import { Home } from './pages/Home';;
+const useStyles = makeStyles((theme) => ({
+    container: {
+        paddingTop: theme.spacing(10),
+    },
+}));
 
 export const AdminScreen = () => {
+    const classes = useStyles();
     return (
-        
+
         <div>
-            <NavBar/>
+            <NavBar />
             <Grid container >
                 <Grid item sm={2}>
-                    <LeftBar/>
+                    <LeftBar />
                 </Grid>
                 <Grid item sm={10}>
-                    <Area/>
+                    <Container className={classes.container}>
+                        {/* <Routes>
+                            <Route path="/" element={<Home/>} />
+                            <Route path="admin/area" element={<Area />} />
+                        </Routes> */}
+                        <Outlet />
+                    </Container>
                 </Grid>
             </Grid>
-            
+
+
         </div>
     )
 }
