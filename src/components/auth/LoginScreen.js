@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-//import { startLogin, startRegister } from '../../actions/auth';
+import { startLogin, startRegister } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 import './login.css';
 
 export const LoginScreen = () => {
 
-    //const dispatch =  useDispatch();
+    const dispatch =  useDispatch();
     
     const [ formLoginValues, handleLoginInputChange ] = useForm ( {
         lEmail: 'test@gmail.com',
@@ -33,7 +33,7 @@ export const LoginScreen = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        //dispatch( startLogin( lEmail, lPassword ) )
+        dispatch( startLogin( lEmail, lPassword ) )
     }
 
     const handleRegister = (e) => {
