@@ -13,12 +13,12 @@ export const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                    <Route  path="/" element={<LoginScreen/>} />
-                   {/* <Route  path="/" element={<AdminScreen/>} >
+                    <Route  path="/auth" element={<LoginScreen/>} />
+                    <Route  path="/" element={<AdminScreen/>} >
                         <Route index element={<Home />} />
                         <Route path="area" element={<Area />} />
                    </Route>
-     */}
+    
             </Routes>
         
         </BrowserRouter>
